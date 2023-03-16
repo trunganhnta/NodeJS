@@ -1,11 +1,9 @@
 const Course = require("../model/Course");
 class SiteController {
   //[GET] /
-  index(req, res) {
-    Course.find({}, (err, courses) => {
-      if (!err) res.json(courses);
-      res.status(400).json({ error: "ERROR!!" });
-    }).lean();
+  async index(req, res) {
+    const course = await Course.find({});
+    await res.json(course);
   }
   //[GET] /search
   search(req, res) {

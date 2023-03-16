@@ -5,10 +5,10 @@ const ObjectId = Schema.ObjectId;
 
 const Course = new Schema({
   name: { type: String, default: "" },
-  description: String,
-  image: String,
+  description: { type: String, maxLength: 600 },
+  image: { type: String, maxLength: 255 },
   createAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });
 
-module.export = mongoose.model("Course", Course);
+module.exports = mongoose.model("Course", Course);
